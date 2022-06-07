@@ -75,3 +75,6 @@ $ npm i react-native-vector-icons
 
 Choisir une icône : https://ionic.io/ionicons
 
+Gérer la validation des champs de formulaires
+
+https://www.npmjs.com/package/validator
