@@ -78,3 +78,5 @@ Choisir une icône : https://ionic.io/ionicons
 Gérer la validation des champs de formulaires
 
 https://www.npmjs.com/package/validator
+
+$ npm i --save-dev @types/validator
