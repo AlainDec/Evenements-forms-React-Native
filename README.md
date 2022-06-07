@@ -75,6 +75,12 @@ $ npm i react-native-vector-icons
 
 Choisir une icône : https://ionic.io/ionicons
 
+Gérer les champs en dropdown
+
+https://www.npmjs.com/package/react-native-paper-dropdown
+
+npm i react-native-paper-dropdown
+
 Gérer la validation des champs de formulaires
 
 https://www.npmjs.com/package/validator
