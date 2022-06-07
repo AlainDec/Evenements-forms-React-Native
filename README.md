@@ -48,3 +48,30 @@ A la validation du formulaire, afficher un écran de succès et les données du 
 ![3-Sign_Up](https://user-images.githubusercontent.com/35977024/172328121-36dda52a-c43d-48cf-b7bd-8e09a2f95231.png)
 ![4-Sign_Up_1](https://user-images.githubusercontent.com/35977024/172328123-5b0c7e7e-c60c-4189-91a7-449432b01a45.png)
 ![5-Sign_Up_2](https://user-images.githubusercontent.com/35977024/172328125-a6abfe76-a01d-4846-8e4c-d0007dc400c3.png)
+
+-----
+
+npm install react-native-paper
+
+>     module.exports = function(api) {
+>       api.cache(true);
+>       return {
+>         presets: ['babel-preset-expo'],
+>         env: {
+>           production: {
+>             plugins: ['react-native-paper/babel'],
+>           },
+>         },
+>       };
+>     };
+
+$ npm install @react-navigation/native @react-navigation/native-stack
+
+$ expo install react-native-screens react-native-safe-area-context
+
+les icônes : https://github.com/oblador/react-native-vector-icons
+
+$ npm i react-native-vector-icons
+
+Choisir une icône : https://ionic.io/ionicons
+
