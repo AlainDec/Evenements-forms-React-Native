@@ -43,6 +43,15 @@ doit être validé.
 
 A la validation du formulaire, afficher un écran de succès et les données du formulaire dans la console
 
+
+<img width="75" alt="1-Home-pf" src="https://user-images.githubusercontent.com/35977024/172328118-45967eea-82d1-4df1-9ec5-afae88c94d99.png">
+<img width="75" alt="2-Sign_In-pf" src="https://user-images.githubusercontent.com/35977024/172328120-bc69315f-a29b-43b0-ba77-0498476b7854.png">
+<img width="75" alt="3-Sign_Up-pf" src="https://user-images.githubusercontent.com/35977024/172328121-36dda52a-c43d-48cf-b7bd-8e09a2f95231.png">
+<img width="75" alt="4-Sign_Up_1-pf" src="https://user-images.githubusercontent.com/35977024/172328123-5b0c7e7e-c60c-4189-91a7-449432b01a45.png">
+<img width="75" alt="5-Sign_Up_2-pf" src="https://user-images.githubusercontent.com/35977024/172328125-a6abfe76-a01d-4846-8e4c-d0007dc400c3.png">
+
+
+
 ![1-Home](https://user-images.githubusercontent.com/35977024/172326905-4ee55983-9986-4858-a936-c84e40118782.png)
 ![2-Sign_In](https://user-images.githubusercontent.com/35977024/172326937-d377c07e-cf93-4ddc-aaa4-f901d5c13301.png)
 ![3-Sign_Up](https://user-images.githubusercontent.com/35977024/172326953-5c332571-8325-44ff-b942-30d0f3833f8e.png)
