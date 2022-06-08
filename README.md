@@ -81,8 +81,10 @@ https://www.npmjs.com/package/react-native-paper-dropdown
 
 npm i react-native-paper-dropdown
 
-Gérer la validation des champs de formulaires
-
-https://www.npmjs.com/package/validator
+Gérer la validation des champs de formulaires : https://www.npmjs.com/package/validator
 
 $ npm i --save-dev @types/validator
+
+Installer react Native Date Picker : https://www.npmjs.com/package/react-native-date-picker
+
+$ npm i react-native-date-picker
