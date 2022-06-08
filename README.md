@@ -90,3 +90,5 @@ Installer react Native Date Picker : https://www.npmjs.com/package/react-native-
 $ expo install react-native-date-picker expo-dev-client
 
 $ expo install @react-native-community/datetimepicker
+
+$ expo install react-native-modal-datetime-picker @react-native-community/datetimepicker
