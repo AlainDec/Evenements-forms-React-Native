@@ -85,10 +85,12 @@ Gérer la validation des champs de formulaires : https://www.npmjs.com/package/v
 
 $ npm i --save-dev @types/validator
 
-Installer react Native Date Picker : https://www.npmjs.com/package/react-native-date-picker
+Installer react Native Date Picker : https://www.npmjs.com/package/react-native-date-picker (fonctionne pas)
 
-$ expo install react-native-date-picker expo-dev-client
+fonctionne pas : $ expo install react-native-date-picker expo-dev-client
 
-$ expo install @react-native-community/datetimepicker
+fonctionne pas : $ expo install @react-native-community/datetimepicker
+
+https://www.npmjs.com/package/@react-native-community/datetimepicker
 
 $ expo install react-native-modal-datetime-picker @react-native-community/datetimepicker
