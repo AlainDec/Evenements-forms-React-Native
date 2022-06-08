@@ -88,3 +88,5 @@ $ npm i --save-dev @types/validator
 Installer react Native Date Picker : https://www.npmjs.com/package/react-native-date-picker
 
 $ expo install react-native-date-picker expo-dev-client
+
+$ expo install @react-native-community/datetimepicker
