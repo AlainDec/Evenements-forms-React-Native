@@ -94,3 +94,14 @@ fonctionne pas : $ expo install @react-native-community/datetimepicker
 https://www.npmjs.com/package/@react-native-community/datetimepicker
 
 $ expo install react-native-modal-datetime-picker @react-native-community/datetimepicker
+
+Pour le problème du focus sur un champ qui fait remonter les champs sur le fond d'écran, il faut ajouter le code suivant dans App.json :
+> {
+>   "expo": {
+>     ...
+>     "android": {
+>       ...
+>       "softwareKeyboardLayoutMode": "pan"
+>     },
+>   }
+> }
