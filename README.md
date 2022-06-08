@@ -69,15 +69,13 @@ $ npm install @react-navigation/native @react-navigation/native-stack
 
 $ expo install react-native-screens react-native-safe-area-context
 
-les icônes : https://github.com/oblador/react-native-vector-icons
+Les icônes : https://github.com/oblador/react-native-vector-icons
 
 $ npm i react-native-vector-icons
 
 Choisir une icône : https://ionic.io/ionicons
 
-Gérer les champs en dropdown
-
-https://www.npmjs.com/package/react-native-paper-dropdown
+Gérer les champs en dropdown : https://www.npmjs.com/package/react-native-paper-dropdown
 
 npm i react-native-paper-dropdown
 
