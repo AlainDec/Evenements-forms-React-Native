@@ -75,7 +75,7 @@ $ npm i react-native-vector-icons
 
 Choisir une icône : https://ionic.io/ionicons
 
-Gérer les champs en dropdown : https://www.npmjs.com/package/react-native-paper-dropdown . Nécessite de mettre le tag <Provider> autour pour fonctionner.
+Gérer les champs en dropdown : https://www.npmjs.com/package/react-native-paper-dropdown . Nécessite de mettre le tag &lt;Provider> autour pour fonctionner.
 
 npm i react-native-paper-dropdown
 
