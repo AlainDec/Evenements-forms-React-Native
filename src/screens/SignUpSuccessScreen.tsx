@@ -1,8 +1,17 @@
-import { NavigationHelpersContext } from '@react-navigation/native';
-import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import CustomButton from '../components/CustomButton';
+import { SignUpSuccessProps } from '../types/TRoutes';
 
-const SignUpSuccessScreen: React.FC<any> = ({ navigation }: any): JSX.Element => {
+const SignUpSuccessScreen: React.FC<SignUpSuccessProps> = ({ navigation, route }: SignUpSuccessProps): JSX.Element => {
+    //const {firstname} = route.params;
+    //console.log("Prénom : " + firstname);
+    console.log(route);
+    console.log(route.params.email);
+    console.log(route.params.password);
+    console.log(route.params.civility);
+    console.log(route.params.firstname);
+    console.log(route.params.lastname);
+    console.log(route.params.dateOfbirth);
     return (
         <View style={styles.container}>
             <Image source={require('../assets/success.jpg')} />

@@ -8,13 +8,17 @@ import CustomInputDatepicker from '../components/CustomeInputDatepicker';
 import CustomInputSelect from '../components/CustomInputSelect';
 import DropDown from "react-native-paper-dropdown";
 import validator from 'validator';
+import { SignUp2Props } from '../types/TRoutes';
 
-const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
+const SignUp2Screen: React.FC<SignUp2Props> = ({ navigation, route }: SignUp2Props): JSX.Element => {
+
+    console.log(route.params.email);
+    console.log(route.params.password);
 
     const [civility, setCivility] = useState<string>('');
     const [firstnameField, setFirstnameField] = useState<string>('');
     const [lastnameField, setLastnameField] = useState<string>('');
-    const [dateField, setDateField] = useState<string | undefined>('');
+    const [dateField, setDateField] = useState<string>('');
     const [isFirstnameValid, setIsFirstnameValid] = useState<boolean>(false);
     const [isLastnameValid, setIsLastnameValid] = useState<boolean>(false);
     const [isDateValid, setIsDateValid] = useState<boolean>(false);
@@ -43,10 +47,10 @@ const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
     const selectCallback = (childSelect: any) => {
         console.log("callback child gender  " + childSelect);
         setCivility(childSelect);
-        checkCivility();
+        checkCivility(childSelect);
     }
-    const checkCivility = (): boolean => {
-        if (civility === "") {
+    const checkCivility = (childSelect: any): boolean => {
+        if (childSelect === "") {
             setIsCivilityValid(false);
             return false;
         }
@@ -55,17 +59,22 @@ const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
     }
 
     // DATES - récupération données enfant
-    const dateCallback = (childDate: any) => {
-        console.log("callback child date  " + childDate);
+    const dateCallback = (childDate: string) => {
         setDateField(childDate);
-        checkDate();
+        console.log("dateField = " + childDate)
+        // Il faut bien passer en paramètre le childDate
+        // car si dans la fonction checkDate, je teste dateField
+        // qui est setté par setDateField(), ca ne sera PAS à jour
+        // car il faut qu'il finisse de lire toute la méthode avant de rafraichir le state
+        // et relire le composant !
+        checkDate(childDate);
     }
-    const checkDate = (): boolean => {
-        console.log("checkdate");
-        if (dateField === "") {
+    const checkDate = (childDate: string): boolean => {
+        if (childDate === "") {
             setIsDateValid(false);
             return false;
         }
+        console.log("checkdate setIsDateValid = true");
         setIsDateValid(true);
         return true;
     }
@@ -110,7 +119,19 @@ const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
                         formValid={isFirstnameValid && isLastnameValid && isDateValid && isCivilityValid}
                         nav={() => navigation.reset({
                             index: 0,
-                            routes: [{ name: 'SignUpSuccess' }],
+                            routes: [
+                                {
+                                    name: 'SignUpSuccess',
+                                    params: {
+                                        email: route.params.email,
+                                        password: route.params.password,
+                                        civility: civility,
+                                        firstname: firstnameField,
+                                        lastname: lastnameField,
+                                        dateOfBirth: dateField,
+                                    }
+                                }
+                            ],
                         })} 
                     />
                 </View>

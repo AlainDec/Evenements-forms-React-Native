@@ -20,16 +20,12 @@ const CustomInputSelect: React.FC<IInputSelect> = ({ label, placeholder, parentS
   const [showMultiSelectDropDown, setShowMultiSelectDropDown] = useState(false);
   const genderList = [
     {
-      label: "Homme",
+      label: "M",
       value: "male",
     },
     {
-      label: "Femme",
+      label: "Mme",
       value: "female",
-    },
-    {
-      label: "Autre",
-      value: "others",
     },
   ];
 

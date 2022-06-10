@@ -28,8 +28,8 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         return true;
     }
     const checkPassword = (): boolean => {
-        if (passwordField !== passwordConfirmField ||
-            passwordField.length < 8) {
+        if (passwordField !== passwordConfirmField/* ||
+            passwordField.length < 8*/) {
             setIsPasswordValid(false);
             return false;
         } 
@@ -108,7 +108,10 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
                     <CustomButton
                         title="Suivant"
                         formValid={isEmailValid && isPasswordValid}
-                        nav={() => navigation.navigate('SignUp2')} />
+                        nav={() => navigation.navigate('SignUp2', {
+                            email: emailField,
+                            password: passwordField
+                        })} />
                 </View>
             </View>
         </View>
