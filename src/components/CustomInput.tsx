@@ -14,7 +14,7 @@ interface IInput {
 
 // Gestion de la vue uniquement.
 // Les tests logiques sur email et password sont fait en amont, à l'appel du composant
-const InputComponent: React.FC<IInput> = ({type, label, placeholder, onChangeText, value, error, onBlur}: IInput): JSX.Element => {
+const CustomInput: React.FC<IInput> = ({type, label, placeholder, onChangeText, value, error, onBlur}: IInput): JSX.Element => {
 
     // Password
     const [isVisibleField, setIsVisibleField] = useState<boolean>(true);
@@ -40,7 +40,7 @@ const InputComponent: React.FC<IInput> = ({type, label, placeholder, onChangeTex
     )
 }
 
-export default InputComponent;
+export default CustomInput;
 
 const styles = StyleSheet.create({
     field: {
