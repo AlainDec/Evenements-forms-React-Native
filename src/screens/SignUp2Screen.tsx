@@ -2,14 +2,42 @@ import { NavigationHelpersContext } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
+import CustomInput from '../components/CustomInput';
+import CustomInputDatepicker from '../components/CustomeInputDatepicker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDown from "react-native-paper-dropdown";
+import validator from 'validator';
 
 const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
 
-    const [civilite, setCivilite] = useState('test');
+    const [civilite, setCivilite] = useState<string>('');
+    const [firstnameField, setFirstnameField] = useState<string>('');
+    const [lastnameField, setLastnameField] = useState<string>('');
+    const [isFirstnameValid, setIsFirstnameValid] = useState<boolean>(false);
+    const [isLastnameValid, setIsLastnameValid] = useState<boolean>(false);
+    const [dateField, setDateField] = useState<string | undefined>('');
 
+    // NOM / PRENOM
+    const checkFirstname = (): boolean => {
+        if (validator.isEmpty(firstnameField)) {
+            setIsFirstnameValid(false);
+            return false;
+        } 
+        setIsFirstnameValid(true);
+        return true;
+    }
+    
+    const checkLastname = (): boolean => {
+        if (validator.isEmpty(firstnameField)) {
+            setIsLastnameValid(false);
+            return false;
+        } 
+        setIsLastnameValid(true);
+        return true;
+    }
+
+    // CIVILITES
     const [showDropDown, setShowDropDown] = useState(false);
     const [gender, setGender] = useState<string>("");
     const [showMultiSelectDropDown, setShowMultiSelectDropDown] = useState(false);
@@ -28,26 +56,11 @@ const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         },
       ];
 
-    // DATES
-    const [date, setDate] = useState<string | undefined>('');
-
-    const padTo2Digits = (num: number): string => num.toString().padStart(2, '0');
-    const formatDate = (date: Date): string => {
-        return [
-            padTo2Digits(date.getDate()),
-            padTo2Digits(date.getMonth() + 1),
-            date.getFullYear(),
-        ].join('/');
+    // DATES - récupération données enfant
+    const dateCallback = (childDate: any) => {
+        setDateField(childDate);
+        console.log("date = " + childDate);
     }
-
-    // DATE PICKER
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-    const showDatePicker = () => setDatePickerVisibility(true);
-    const hideDatePicker = () => setDatePickerVisibility(false);
-    const handleConfirm = (date: Date): void => {
-        setDate(formatDate(date));
-        hideDatePicker();
-    };
 
     return (
         <View style={styles.container}>
@@ -63,49 +76,39 @@ const SignUp2Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
                     list={genderList}
                     placeholder="Choisissez votre civilité"
                 />
-                <TextInput
+                <CustomInput
+                    type="text"
                     label="Prénom"
-                    style={styles.field}
                     placeholder="Entrez votre prénom"
-                    onChangeText={() => { }}
-                    value={''}
-
-                    error={false}
-                    onBlur={() => { }}
+                    onChangeText={(firstnameField:string) => setFirstnameField(firstnameField)}
+                    value={firstnameField}
+                    error={!isFirstnameValid}
+                    onBlur={() => checkFirstname()}
                 />
-                <TextInput
+                <CustomInput
+                    type="text"
                     label="Nom"
-                    style={styles.field}
                     placeholder="Entrez votre nom"
-                    onChangeText={() => { }}
-                    value={''}
-
-                    error={false}
-                    onBlur={() => { }}
+                    onChangeText={(lastnameField:string) => setLastnameField(lastnameField)}
+                    value={lastnameField}
+                    error={!isLastnameValid}
+                    onBlur={() => checkLastname()}
                 />
-                <TextInput
+                <CustomInputDatepicker
                     label="Date de naissance"
-                    style={styles.field}
                     placeholder="Entrez votre date de naissance"
-                    value={date}
+                    onChangeText={(dateField:string) => setDateField(dateField)}
+                    value={firstnameField}
 
-                    right={<TextInput.Icon name="calendar" onPress={showDatePicker} />}
-                    maxLength={10}
-                    editable={false}
+                    parentDateCallback={dateCallback}
                     error={false}
                     onBlur={() => { }}
-                />
-                <DateTimePickerModal
-                    isVisible={isDatePickerVisible}
-                    mode="date"
-                    onConfirm={handleConfirm}
-                    onCancel={hideDatePicker}
                 />
                 <View style={styles.containerButtons}>
                     {/* supprime toute la pile de navigation, donc plus de bouton back */}
-                    <ButtonComponent
+                    <CustomButton
                         title="Terminé"
-                        formValid={true}
+                        formValid={isFirstnameValid && isLastnameValid}
                         nav={() => navigation.reset({
                             index: 0,
                             routes: [{ name: 'SignUpSuccess' }],

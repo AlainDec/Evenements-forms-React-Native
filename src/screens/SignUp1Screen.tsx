@@ -2,23 +2,24 @@ import { NavigationHelpersContext } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
+import CustomInput from '../components/CustomInput';
 import validator from 'validator';
 
 const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
 
-    const [emailField, setEmailField] = useState('');
-    const [passwordField, setPasswordField] = useState('');
-    const [passwordConfirmField, setPasswordConfirmField] = useState('');
+    const [emailField, setEmailField] = useState<string>('');
+    const [passwordField, setPasswordField] = useState<string>('');
+    const [passwordConfirmField, setPasswordConfirmField] = useState<string>('');
     const [isVisibleField, setIsVisibleField] = useState<boolean>(true);
-    const [isEmailValid, setIsEmailValid] = useState(false);
-    const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+    const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
 
     const toggleVisible = () => setIsVisibleField(!isVisibleField);
 
     const iconEye = <TextInput.Icon name={isVisibleField ? 'eye-off' : 'eye'} onPress={toggleVisible} />
 
-    const checkEmail = () => {
+    const checkEmail = (): boolean => {
         if (!validator.isEmail(emailField)) {
             setIsEmailValid(false);
             return false;
@@ -26,7 +27,7 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         setIsEmailValid(true);
         return true;
     }
-    const checkPassword = () => {
+    const checkPassword = (): boolean => {
         if (passwordField !== passwordConfirmField ||
             passwordField.length < 8) {
             setIsPasswordValid(false);
@@ -40,6 +41,7 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         <View style={styles.container}>
             <Image source={require('../assets/login.jpg')} />
             <View style={styles.containerFields}>
+                {/*
                 <TextInput
                     label="Email"
                     style={styles.field}
@@ -74,8 +76,36 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
                     error={!isPasswordValid}
                     onBlur={checkPassword}
                 />
+    */}
+                <CustomInput
+                    type="email"
+                    label="Email"
+                    placeholder="Entrez votre email"
+                    onChangeText={(emailField:string) => setEmailField(emailField)}
+                    value={emailField}
+                    error={!isEmailValid}
+                    onBlur={() => checkEmail()}
+                />
+                <CustomInput
+                    type="password"
+                    label="Mot de passe"
+                    placeholder="placeholder!"
+                    onChangeText={passwordField => setPasswordField(passwordField)}
+                    value={passwordField}
+                    error={!isPasswordValid}
+                    onBlur={() => checkPassword()}
+                />
+                <CustomInput
+                    type="password"
+                    label="Confirmation du mot de passe"
+                    placeholder="Entrez votre mot de passe"
+                    onChangeText={passwordConfirmField => setPasswordConfirmField(passwordConfirmField)}
+                    value={passwordConfirmField}
+                    error={!isPasswordValid}
+                    onBlur={() => checkPassword()}
+                />
                 <View style={styles.containerButtons}>
-                    <ButtonComponent
+                    <CustomButton
                         title="Suivant"
                         formValid={isEmailValid && isPasswordValid}
                         nav={() => navigation.navigate('SignUp2')} />

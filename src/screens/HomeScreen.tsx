@@ -1,17 +1,17 @@
 import { NavigationHelpersContext } from '@react-navigation/native';
 import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
 
 const HomeScreen: React.FC<any> = ({ navigation }: any): JSX.Element => {
     return (
         <View style={styles.container}>
             <Image source={require('../assets/pirates-corsaires.png')} />
             <View style={styles.containerButtons}>
-                <ButtonComponent
+                <CustomButton
                     title="Se Connecter"
                     nav={() => navigation.navigate('SignIn')}
                 />
-                <ButtonComponent
+                <CustomButton
                     title="S'inscrire"
                     nav={() => navigation.navigate('SignUp1')}
                 />

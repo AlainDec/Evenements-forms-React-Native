@@ -2,7 +2,7 @@ import { NavigationHelpersContext } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
 import validator from 'validator';
 
 const SignInScreen: React.FC<any> = ({ navigation }: any): JSX.Element => {
@@ -54,7 +54,7 @@ const SignInScreen: React.FC<any> = ({ navigation }: any): JSX.Element => {
                     onBlur={() => {}}
                 />
                 <View style={styles.containerButtons}>
-                    <ButtonComponent
+                    <CustomButton
                         title="Se Connecter"
                         formValid={true}
                         nav={() => {}}

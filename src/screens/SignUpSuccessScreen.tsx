@@ -1,6 +1,6 @@
 import { NavigationHelpersContext } from '@react-navigation/native';
 import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
 
 const SignUpSuccessScreen: React.FC<any> = ({ navigation }: any): JSX.Element => {
     return (
@@ -9,7 +9,7 @@ const SignUpSuccessScreen: React.FC<any> = ({ navigation }: any): JSX.Element =>
             <Text>Votre compte a été créé avec succès</Text>
             <View style={styles.containerButtons}>
                 {/* supprime toute la pile de navigation, donc plus de bouton back */}
-                <ButtonComponent
+                <CustomButton
                     title="Se Connecter"
                     nav={() => navigation.reset({
                         index: 0,
