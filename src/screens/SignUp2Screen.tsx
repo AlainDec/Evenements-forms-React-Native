@@ -61,7 +61,6 @@ const SignUp2Screen: React.FC<SignUp2Props> = ({ navigation, route }: SignUp2Pro
     // DATES - récupération données enfant
     const dateCallback = (childDate: string) => {
         setDateField(childDate);
-        console.log("dateField = " + childDate)
         // Il faut bien passer en paramètre le childDate
         // car si dans la fonction checkDate, je teste dateField
         // qui est setté par setDateField(), ca ne sera PAS à jour
@@ -74,7 +73,6 @@ const SignUp2Screen: React.FC<SignUp2Props> = ({ navigation, route }: SignUp2Pro
             setIsDateValid(false);
             return false;
         }
-        console.log("checkdate setIsDateValid = true");
         setIsDateValid(true);
         return true;
     }

@@ -28,8 +28,8 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         return true;
     }
     const checkPassword = (): boolean => {
-        if (passwordField !== passwordConfirmField/* ||
-            passwordField.length < 8*/) {
+        if (passwordField !== passwordConfirmField ||
+            passwordField.length < 8) {
             setIsPasswordValid(false);
             return false;
         } 
@@ -41,42 +41,6 @@ const SignUp1Screen: React.FC<any> = ({ navigation }: any): JSX.Element => {
         <View style={styles.container}>
             <Image source={require('../assets/login.jpg')} />
             <View style={styles.containerFields}>
-                {/*
-                <TextInput
-                    label="Email"
-                    style={styles.field}
-                    placeholder="Entrez votre email"
-                    onChangeText={emailField => setEmailField(emailField)}
-                    value={emailField}
-
-                    error={!isEmailValid}
-                    onBlur={checkEmail}
-                />
-                <TextInput
-                    label="Mot de passe"
-                    style={styles.field}
-                    placeholder="Entrez votre mot de passe"
-                    onChangeText={passwordField => setPasswordField(passwordField)}
-                    value={passwordField}
-
-                    secureTextEntry={isVisibleField}
-                    right={iconEye}
-                    error={!isPasswordValid}
-                    onBlur={checkPassword}
-                />
-                <TextInput
-                    label="Confirmation du mot de passe"
-                    style={styles.field}
-                    placeholder="Entrez votre mot de passe"
-                    onChangeText={passwordConfirmField => setPasswordConfirmField(passwordConfirmField)}
-                    value={passwordConfirmField}
-
-                    secureTextEntry
-                    right={iconEye}
-                    error={!isPasswordValid}
-                    onBlur={checkPassword}
-                />
-    */}
                 <CustomInput
                     type="email"
                     label="Email"

@@ -3,15 +3,13 @@ import CustomButton from '../components/CustomButton';
 import { SignUpSuccessProps } from '../types/TRoutes';
 
 const SignUpSuccessScreen: React.FC<SignUpSuccessProps> = ({ navigation, route }: SignUpSuccessProps): JSX.Element => {
-    //const {firstname} = route.params;
-    //console.log("Prénom : " + firstname);
     console.log(route);
     console.log(route.params.email);
     console.log(route.params.password);
     console.log(route.params.civility);
     console.log(route.params.firstname);
     console.log(route.params.lastname);
-    console.log(route.params.dateOfbirth);
+    console.log(route.params.dateOfBirth);
     return (
         <View style={styles.container}>
             <Image source={require('../assets/success.jpg')} />

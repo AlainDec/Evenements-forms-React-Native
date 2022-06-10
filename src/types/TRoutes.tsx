@@ -6,11 +6,12 @@ interface IFieldsSignUp1 {
 }
 
 interface IFieldsSignUp2 {
-    screen1: IFieldsSignUp1,
+    email: string,
+    password: string,
     civility: string,
     firstname: string,
     lastname: string,
-    dateOfbirth: string
+    dateOfBirth: string
 }
 
 type RootStackParamList = {
